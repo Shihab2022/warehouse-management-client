@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from '../img/logo.png'
+import logo from "../img/logo.png";
 const Header = () => {
   return (
-    <div className='relative'>
+    <div className="relative">
       <header className="text-gray-600 absolute top-0 w-full  body-font">
         <div className="container mx-auto flex flex-wrap py-3 md:px-24 flex-col md:flex-row items-center">
           <Link
             to="/"
             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
           >
-      <img src={logo} alt="" />
+            <img src={logo} alt="" />
           </Link>
           <nav className="md:ml-auto flex flex-wrap text-white text-xl  font-mono  items-center  justify-center">
             <Link to="/" className="mr-5  hover:text-amber-500">
@@ -26,7 +26,6 @@ const Header = () => {
               Fourth Link
             </Link>
           </nav>
-         
         </div>
       </header>
     </div>
