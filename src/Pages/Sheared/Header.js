@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../img/logo.png";
+import logo2 from "../img/logo2.png";
 const Header = () => {
   return (
     <div className="relative">
@@ -10,7 +10,7 @@ const Header = () => {
             to="/"
             className="flex title-font  font-medium items-center text-gray-900 mb-4 md:mb-0"
           >
-            <img src={logo} alt="" />
+            <img src={logo2} alt="" />
           </Link>
           <nav className="md:ml-auto flex flex-wrap text-white text-xl  font-mono  items-center  justify-center">
             <Link to="/" className="mr-5  hover:text-amber-500">
