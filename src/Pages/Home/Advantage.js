@@ -11,8 +11,8 @@ const Advantage = () => {
     <>
       <div className="py-14 bg-yellow-100">
         <div className="flex justify-center flex-col mb-5 items-center">
-          <p>120 + CARS TYPE & BRANDS TYPE</p>
-          <h1 className="text-4xl">
+          <p className="text-sm">120 + CARS TYPE & BRANDS TYPE</p>
+          <h1 className="md:text-4xl text-2xl">
             Royal Cars{" "}
             <span className="text-amber-600 font-bold">Advantages</span>
           </h1>
@@ -58,8 +58,8 @@ const Advantage = () => {
           <img src={details} alt="" />
         </div>
         <div className="m-5">
-          <h4 className="text-lg tracking-wide">KNOW MORE ABOUT US</h4>
-          <h1 className="text-4xl my-4">
+          <h4 className="md:text-lg text-sm  tracking-wide">KNOW MORE ABOUT US</h4>
+          <h1 className="md:text-4xl text-2xl my-4">
             Who <span className="text-amber-500 font-bold">Royal Cars</span> Are
             .
           </h1>
