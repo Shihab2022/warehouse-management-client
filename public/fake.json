@@ -1,0 +1,62 @@
+[
+    {
+      "_id": "626cb5b710e2dd210d140aff",
+      "price": "$1,794.23",
+      "picture": "https://i.ibb.co/zNKd53y/pexels-sourav-mishra-1149831.jpg",
+      "about": "Occaecat officia fugiat exercitation nostrud commodo quis velit id sit culpa voluptate amet voluptate.",
+      "name1": "Volkaswagen",
+      "name2": "GTR",
+      "quantity": 10,
+      "supplierName": "Alta Harrison"
+    },
+    {
+      "_id": "626cb5b7c38a30f6eb1e3e39",
+      "price": "$3,979.82",
+      "picture": "https://i.ibb.co/JdfmRnK/pexels-mike-810357.jpg",
+      "about": "Ut magna ad ullamco elit sunt aliqua laboris laboris id ex cillum excepteur Lorem. Ex ea mollit deserunt est consectetur eiusmod et velit fugiat magna ex velit non nisi.",
+      "name1":  "Audi Sport",
+      "name2": "SB",
+      "quantity": 9,
+      "supplierName": "Lolita Cooke"
+    },
+    {
+      "_id": "626cb5b76ff6823e61891b38",
+      "price": "$3,515.95",
+      "picture": "https://i.ibb.co/1mD5kZr/pexels-mike-2365572.jpg",
+      "about": "Lorem adipisicing sit aliquip ipsum proident. Nisi consequat aute duis duis voluptate velit incididunt do proident irure ullamco consectetur. ",
+      "name1":  "Bugatti Feyron",
+      "name2": "F2",
+      "quantity": 7,
+      "supplierName": "Jean Nielsen"
+    },
+    {
+      "_id": "626cb5b7d49c8b0047c2181a",
+      "price": "$3,684.85",
+      "picture": "https://i.ibb.co/gPQ6WKw/pexels-jae-park-3802510.jpg",
+      "about": "Ut fugiat esse eu esse incididunt amet commodo ullamco. Dolore tempor deserunt culpa esse fugiat consectetur eiusmod laborum qui.",
+      "name1":  "Mercedes Menz",
+      "name2": "R3",
+      "quantity": 2,
+      "supplierName": "Mcintyre Brennan"
+    },
+    {
+      "_id": "626cb5b782022ef390b2dece",
+      "price": "$2,667.83",
+      "picture": "https://i.ibb.co/308Rp10/pexels-mike-136872.jpg",
+      "about": "Enim culpa tempor duis Lorem voluptate eiusmod mollit velit laboris. Consectetur id aliqua adipisicing est elit aliqua nostrud Lorem deserunt anim. ",
+      "name1":  "Toyota Avanza",
+      "name2": "RX",
+      "quantity":5,
+      "supplierName": "Roxanne Bradshaw"
+    },
+    {
+      "_id": "626cb5b7157294053715af7d",
+      "price": "$2,184.63",
+      "picture": "https://i.ibb.co/VvJ16nR/pexels-sevenstorm-juhaszimrus-575386.jpg",
+      "about": "Dolor pariatur ullamco duis adipisicing qui ea aliqua veniam. Quis labore aute in id dolore anim mollit.",
+      "name1":  "Chevrolet",
+      "name2": "GTR",
+      "quantity": 11,
+      "supplierName": "Fern Cleveland"
+    }
+  ]
