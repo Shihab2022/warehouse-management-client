@@ -1,8 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo2 from "../img/logo2.png";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from "../../firebase.init";
+import Loading from "../Sheared/Loading";
 
 const Register = () => {
+  const navigate=user.navigate();
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+const submitFrom= e => {
+
+  const email = e.target.email.value
+  const password = e.target.password.value
+  const confirmPassword = e.target.confirmPassword.value
+  console.log(email,confirmPassword)
+  createUserWithEmailAndPassword(email,password)
+e.preventDefault();
+}
+if(loading){
+  return <Loading></Loading>
+}
+if(user){
+  
+}
+
+
   return (
     <>
     
@@ -14,7 +41,7 @@ const Register = () => {
           <h3 className="text-2xl text-black font-bold text-center">
             Register your account
           </h3>
-          <form >
+          <form onSubmit={submitFrom}>
             <div className="mt-4">
               <div>
                 <label className="block ">Email</label>
@@ -80,6 +107,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <Loading></Loading>
     </>
     
   );
