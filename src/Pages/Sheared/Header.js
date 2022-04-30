@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo2 from "../img/logo2.png";
+import CustomLink from "../Login/CustomLink";
 const Header = () => {
   return (
     <div className="relative">
@@ -13,17 +14,17 @@ const Header = () => {
             <img src={logo2} alt="" />
           </Link>
           <nav className="md:ml-auto flex flex-wrap text-white text-xl  font-mono  items-center  justify-center">
-            <Link to="/" className="mr-5  hover:text-amber-500">
+            <CustomLink to="/home" className="mr-5  hover:text-amber-500">
               First Link
-            </Link>
-            <Link to="/" className="mr-5  hover:text-amber-500">
+            </CustomLink>
+            <CustomLink to="/" className="mr-5  hover:text-amber-500">
               Second Link
-            </Link>
+            </CustomLink>
             <Link to="/" className="mr-5 hover:text-amber-500">
               Third Link
             </Link>
-            <Link to="/" className="mr-5   hover:text-amber-500 ">
-              Fourth Link
+            <Link to="/login" className="mr-5 bg-amber-500 px-5 py-1 rounded-md  hover:text-black ">
+              Login
             </Link>
           </nav>
         </div>
