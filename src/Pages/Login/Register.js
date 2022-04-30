@@ -6,7 +6,7 @@ const Register = () => {
   return (
     <>
     
-    <div className="flex items-center justify-center min-h-screen md:py-14  bg-gray-200">
+    <div className="flex items-center justify-center min-h-screen md:py-24  bg-gray-200">
         <div className="px-8 py-6  text-left rounded-lg bg-amber-300 shadow-lg">
           <div className="flex justify-center">
             <img src={logo2} alt="" />

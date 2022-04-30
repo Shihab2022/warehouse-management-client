@@ -1,5 +1,6 @@
 import React from "react";
 import { FaUserPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import useHomePageData from "../../Hooks/HomePageData";
 import DiscountDetails from "./DiscountDetails";
 const Discount = () => {
@@ -8,7 +9,7 @@ const Discount = () => {
 
   return (
     <>
-      <div className="md:py-14 p-5 md:px-52 bg-stone-500">
+      <div className="md:py-24 p-5 md:px-52  bg-stone-500">
         <div className="flex justify-between items-center">
           <div className="md:w-1/2">
             <p className="text-sm text-white">NEW MEMBER DISCOUNT </p>
@@ -20,7 +21,7 @@ const Discount = () => {
             <span className="text-xl">
               <FaUserPlus />
             </span>
-            <button className="ml-3 font-bold"> SIGN UP NOW</button>
+            <Link to='/register' className="ml-3 font-bold"> SIGN UP NOW</Link>
           </div>
         </div>
 
