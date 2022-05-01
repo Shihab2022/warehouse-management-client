@@ -1,32 +1,41 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo2 from "../img/logo2.png";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init";
 import Loading from "../Sheared/Loading";
 
 const Register = () => {
-  const navigate=user.navigate();
+const navigate=useNavigate()
+const [userError,setUserError]=useState('')
   const [
     createUserWithEmailAndPassword,
     user,
     loading,
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, googlUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 const submitFrom= e => {
-
   const email = e.target.email.value
   const password = e.target.password.value
   const confirmPassword = e.target.confirmPassword.value
-  console.log(email,confirmPassword)
+ if(password === confirmPassword){
   createUserWithEmailAndPassword(email,password)
+ }
+ else{
+   setUserError('Your password and confirm password do not match !!!!')
+ }
+  
 e.preventDefault();
 }
-if(loading){
+const handleSignInWithGoogle=()=> {
+  signInWithGoogle()
+}
+if(loading || googleLoading){
   return <Loading></Loading>
 }
-if(user){
-  
+if(user || googlUser){
+  return navigate('/')
 }
 
 
@@ -76,6 +85,15 @@ if(user){
                 />
               </div>
              
+             {
+               userError ? <p className='text-sm text-red-700 mt-1 '>{userError} </p> : ''
+             }
+             {
+               error ? <p className='text-sm text-red-700 mt-1 '>{error?.message} </p> : ''
+             }
+             {
+               googleError ? <p className='text-sm text-red-700 mt-1 '>{googleError?.message} </p> : ''
+             }
 
               <div className="flex items-baseline justify-between">
                 <button className="px-40 py-2 mt-4 text-white bg-yellow-600 rounded-full hover:bg-red-600">
@@ -99,7 +117,7 @@ if(user){
           </div>
           <div className="flex  items-baseline justify-between">
             <button
-              
+            onClick={handleSignInWithGoogle}
               className="px-28 py-2 mt-4 text-white hover:bg-yellow-800 rounded-full bg-red-800"
             >
               Continue with Google
@@ -107,7 +125,7 @@ if(user){
           </div>
         </div>
       </div>
-      <Loading></Loading>
+     
     </>
     
   );
