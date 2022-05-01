@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+
 import './App.css';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
@@ -18,7 +19,7 @@ function App() {
 
 
       </Routes>
-      
+    
       <Footer></Footer>
     </div>
   );

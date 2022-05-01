@@ -1,8 +1,16 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 import logo2 from "../img/logo2.png";
 import CustomLink from "../Login/CustomLink";
 const Header = () => {
+  const [user, loading] = useAuthState(auth);
+
+  const logOutUser=()=> {
+    signOut(auth);
+  }
   return (
     <div className="relative">
       <header className="text-gray-600 fixed bg-black z-20 top-0 w-full  body-font">
@@ -23,9 +31,15 @@ const Header = () => {
             <Link to="/" className="mr-5 hover:text-amber-500">
               Third Link
             </Link>
-            <Link to="/login" className="mr-5 bg-amber-500 px-5 py-1 rounded-md  hover:text-black ">
-              Login
-            </Link>
+          
+          {
+            user ? <button onClick={logOutUser} className="mr-5 bg-rose-800 px-5 py-1 rounded-lg hover:text-black ">
+            Log out
+          </button>  : <Link to="/login" className="mr-5 bg-amber-500 px-5 py-1 rounded-lg hover:text-black ">
+            Login
+          </Link>
+          }
+            
           </nav>
         </div>
       </header>
