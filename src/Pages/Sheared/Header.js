@@ -21,21 +21,21 @@ const Header = () => {
           >
             <img src={logo2} alt="" />
           </Link>
-          <nav className="md:ml-auto flex flex-wrap text-white text-xl  font-mono  items-center  justify-center">
+          <nav className="md:ml-auto flex flex-wrap text-white text-xl    items-center  justify-center">
             <CustomLink to="/home" className="mr-5  hover:text-amber-500">
-              First Link
+              Home
             </CustomLink>
-            <CustomLink to="/" className="mr-5  hover:text-amber-500">
-              Second Link
+            <CustomLink to="/blog" className="mr-5  hover:text-amber-500">
+              Blog
             </CustomLink>
             <Link to="/" className="mr-5 hover:text-amber-500">
               Third Link
             </Link>
           
           {
-            user ? <button onClick={logOutUser} className="mr-5 bg-rose-800 px-5 py-1 rounded-lg hover:text-black ">
+            user ? <button onClick={logOutUser} className="mr-5 bg-rose-800 px-5 py-1 rounded-full hover:text-black ">
             Log out
-          </button>  : <Link to="/login" className="mr-5 bg-amber-500 px-5 py-1 rounded-lg hover:text-black ">
+          </button>  : <Link to="/login" className="mr-5 bg-amber-500 px-5 py-1 rounded-full hover:text-black ">
             Login
           </Link>
           }

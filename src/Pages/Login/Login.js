@@ -32,10 +32,11 @@ const handleGoogleSignIn=()=> {
 const updateYourPassword=async () => {
   if(getEmil){
     await sendPasswordResetEmail(getEmil);
-    toast("Wow so easy !")
+    toast("Email reset password sent  !")
+    
   }
   else{
-    toast("Wow so easy !")
+    toast("Please enter your email address !")
   }
   
 }
