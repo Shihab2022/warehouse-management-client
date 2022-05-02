@@ -1,7 +1,12 @@
 import React from 'react';
+import {  useNavigate } from 'react-router-dom';
 
 const ProductDetails = ({data}) => {
-    const {name1,name2,picture,price,about,quantity,supplierName}=data
+    const {name1,name2,picture,price,about,quantity,supplierName,_id}=data
+    const navigate =useNavigate()
+    const handleUpdate=(id) => {
+        navigate(`/inventory/${id}`)
+    }
     return (
         <>
 
@@ -17,7 +22,7 @@ const ProductDetails = ({data}) => {
         <hr className="h-0.5 my-3  bg-amber-500" />
         <div className="flex justify-around items-center">
             <p>Quantity : <span className='text-amber-500'>{quantity}</span></p>
-            <button className="bg-amber-500 px-5 py-2 text-white rounded-sm">Update</button>
+            <button onClick={() =>handleUpdate(_id)} className="bg-amber-500 px-5 py-2 text-white rounded-sm">Update</button>
         </div>
         </div>
          
