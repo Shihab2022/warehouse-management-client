@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import logo2 from '../img/logo2.png'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Sheared/Loading';
@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 const Login = () => {
   const [getEmil,setGetEmail]=useState('')
 const navigate =useNavigate()
+let location = useLocation();
+let from = location.state?.from?.pathname || "/";
   const [
     signInWithEmailAndPassword,
     user,
@@ -40,8 +42,12 @@ const updateYourPassword=async () => {
   }
   
 }
+
+
+
+
 if(user || googleUser){
-  return navigate('/')
+  navigate(from, { replace: true });
 }
 if(loading || googleLoading || sending){
   

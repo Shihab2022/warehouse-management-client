@@ -4,7 +4,7 @@ const useHomePageData=()=>{
     const [homeData,setHomeData]=useState([])
 
     useEffect(()=>{
-        fetch('fake.json')
+        fetch('https://guarded-cliffs-41354.herokuapp.com/products')
         .then(res =>res.json())
         .then(data=>setHomeData(data))
     },[])
