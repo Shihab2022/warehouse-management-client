@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
-import Inventory from './Inventory/Inventory';
+
 import AddItems from './Pages/AddItems/AddItems';
+import AddNewItem from './Pages/AddNewItem/AddNewItem';
 import Blog from './Pages/Blog/Blog';
 import Home from './Pages/Home/Home';
+import Inventory from './Pages/Inventory/Inventory';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
@@ -27,6 +29,7 @@ function App() {
 <Route path='/inventory' element={<RequireAuth>  <Inventory></Inventory></RequireAuth>}></Route>
 <Route path='/inventory/:id' element={<RequireAuth>  <Inventory></Inventory></RequireAuth>}></Route>
 <Route path='/manageItems' element={<ManageItems></ManageItems>}></Route>
+<Route path='/addNewItem' element={<AddNewItem></AddNewItem>}></Route>
 <Route path='/myItems' element={<MyItems></MyItems>}></Route>
 <Route path='/addItems' element={<AddItems></AddItems>}></Route>
 <Route path='*' element={<NotFound></NotFound>}></Route>
