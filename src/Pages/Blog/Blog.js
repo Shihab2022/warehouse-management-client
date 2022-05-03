@@ -6,7 +6,7 @@ import {
 } from "react-icons/fa";
 const Blog = () => {
   return (
-    <div className=" bg-amber-50 flex justify-center pt-28 md:pt-24">
+    <div className=" bg-amber-50 px-5 md:px-32  pt-28 md:pt-24">
       <div>
         {/* Difference between Javascript and Node.JS */}
 
@@ -198,6 +198,97 @@ const Blog = () => {
               </span>
               <span className="ml-2 text-xl">
               Horizontally scalable.{" "}
+              </span>
+            </div>
+           
+          </div>
+        </div>
+
+        {/* When should you use `nodejs` and when should you use `mongodb` */}
+
+        <div>
+          <div className="flex justify-center text-5xl mb-3 text-amber-800">
+            <FaQuoteLeft></FaQuoteLeft>
+          </div>
+          <h1 className="text-2xl md:text-4xl">
+          When should you use Node.Js and when should you use mongodb ?
+          </h1>
+
+          {/* Node.Js */}
+          <div className="flex items-center my-3">
+            <span className=" text-amber-800">
+              <FaChevronCircleRight />
+            </span>
+            <span className="ml-2 text-2xl"> Use Node.Js ? </span>
+          </div>
+          <div className="ml-5">
+            <div className="flex items-center my-3">
+              <span className=" text-amber-500">
+                <FaLongArrowAltRight />
+              </span>
+              <span className="ml-2 text-xl">
+              Real time applications like online games, chat rooms can be created using node.js .{" "}
+              </span>
+            </div>
+            <div className="flex items-center my-3">
+              <span className=" text-amber-500">
+                <FaLongArrowAltRight />
+              </span>
+              <span className="ml-2 text-xl">
+                {" "}
+                Node.Js can be used in the development of sockets only servers like chat and apps.{" "}
+              </span>
+            </div>
+            <div className="flex items-center my-3">
+              <span className=" text-amber-500">
+                <FaLongArrowAltRight />
+              </span>
+              <span className="ml-2 text-xl">
+              Node.js is the best option for a completely cloud based application development.{" "}
+              </span>
+            </div>
+            <div className="flex items-center my-3">
+              <span className=" text-amber-500">
+                <FaLongArrowAltRight />
+              </span>
+              <span className="ml-2 text-xl">
+              Analytics webapp handle only small chunks of data and the processing can be made faster with the help of node.js .{" "}
+              </span>
+            </div>
+          </div>
+
+          {/* NoSql */}
+
+          <div className="flex items-center my-3">
+            <span className=" text-amber-800">
+              <FaChevronCircleRight />
+            </span>
+            <span className="ml-2 text-2xl">Use Mongodb ? </span>
+          </div>
+          <div className="ml-5">
+            <div className="flex items-center my-3">
+              <span className=" text-amber-500">
+                <FaLongArrowAltRight />
+              </span>
+              <span className="ml-2 text-xl">
+                {" "}
+                MongoDB is a document-based non-relational database management system. It’s also called an object-based system. It was designed to supplant the MySQL structure as an easier way to work with data.  {" "}
+              </span>
+            </div>
+            <div className="flex items-center my-3">
+              <span className=" text-amber-500">
+                <FaLongArrowAltRight />
+              </span>
+              <span className="ml-2 text-xl">
+              MongoDB is also free to use and open source .{" "}
+              </span>
+            </div>
+            <div className="flex items-center my-3">
+              <span className=" text-amber-500">
+                <FaLongArrowAltRight />
+              </span>
+              <span className="ml-2 text-xl">
+              MongoDB is a well-established, non-relational database system offering improved flexibility and horizontal scalability .{" "}
               </span>
             </div>
            

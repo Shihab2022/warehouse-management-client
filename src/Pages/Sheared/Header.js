@@ -39,17 +39,17 @@ if(loading){
             }
            {
              user &&   <CustomLink to="/manageItems" className="mr-5  hover:text-amber-500">
-             ManageItems
+             Manage Items
              </CustomLink>
            }
            {
              user &&  <CustomLink to="/addNewItem" className="mr-5  hover:text-amber-500">
-             AddNewItem
+             Add Item
              </CustomLink>
            }
            {
              user &&  <CustomLink to="/myItems" className="mr-5  hover:text-amber-500">
-             MyItems
+             My Items
              </CustomLink>
            }
           
