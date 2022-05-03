@@ -28,10 +28,10 @@ function App() {
 <Route path='/blog' element={<Blog></Blog>}></Route>
 <Route path='/inventory' element={<RequireAuth>  <Inventory></Inventory></RequireAuth>}></Route>
 <Route path='/inventory/:id' element={<RequireAuth>  <Inventory></Inventory></RequireAuth>}></Route>
-<Route path='/manageItems' element={<ManageItems></ManageItems>}></Route>
-<Route path='/addNewItem' element={<AddNewItem></AddNewItem>}></Route>
-<Route path='/myItems' element={<MyItems></MyItems>}></Route>
-<Route path='/addItems' element={<AddItems></AddItems>}></Route>
+<Route path='/manageItems' element={  <ManageItems></ManageItems>}></Route>
+<Route path='/addNewItem' element={  <AddNewItem></AddNewItem>}></Route>
+<Route path='/myItems' element={  <MyItems></MyItems>}></Route>
+{/* <Route path='/addItems' element={<AddItems></AddItems>}></Route> */}
 <Route path='*' element={<NotFound></NotFound>}></Route>
 
       </Routes>

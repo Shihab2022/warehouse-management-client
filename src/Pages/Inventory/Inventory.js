@@ -27,7 +27,7 @@ const Inventory = () => {
         <img className="w-screen  h-screen" src={product?.picture} alt="" />
       </div>
 
-      <div className="absolute items-center  grid md:grid-cols-2 gap-2 md:gap-10 justify-center  bg-[rgba(0,0,0,.5)] h-screen md:px-24  top-0">
+      <div className="absolute items-center  grid md:grid-cols-2 gap-2 md:gap-10 justify-center  bg-[rgba(0,0,0,.5)] h-screen w-screen md:px-24  top-0">
         <div className=" w-full md:mt-0 mt-24  text-amber-500   py-2  md:py-8">
           <div className="ml-5 md:mt-0 mt-4">
             <p className="text-2xl md:text-5xl text-amber-500">

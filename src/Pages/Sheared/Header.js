@@ -5,12 +5,16 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import logo2 from "../img/logo2.png";
 import CustomLink from "../Login/CustomLink";
+import Loading from "./Loading";
 const Header = () => {
   const [user, loading] = useAuthState(auth);
 
   const logOutUser=()=> {
     signOut(auth);
   }
+if(loading){
+  return <Loading></Loading>
+}
   return (
     <div className="relative">
       <header className="text-gray-600 fixed bg-black z-20 top-0 w-full  body-font">
@@ -28,9 +32,30 @@ const Header = () => {
             <CustomLink to="/blog" className="mr-5  hover:text-amber-500">
               Blog
             </CustomLink>
-            <Link to="/" className="mr-5 hover:text-amber-500">
-              Third Link
-            </Link>
+            {
+              user &&  <CustomLink to="/inventory" className="mr-5  hover:text-amber-500">
+              Inventory
+              </CustomLink>
+            }
+           {
+             user &&   <CustomLink to="/manageItems" className="mr-5  hover:text-amber-500">
+             ManageItems
+             </CustomLink>
+           }
+           {
+             user &&  <CustomLink to="/addNewItem" className="mr-5  hover:text-amber-500">
+             AddNewItem
+             </CustomLink>
+           }
+           {
+             user &&  <CustomLink to="/myItems" className="mr-5  hover:text-amber-500">
+             MyItems
+             </CustomLink>
+           }
+          
+           
+           
+           
           
           {
             user ? <button onClick={logOutUser} className="mr-5 bg-rose-800 px-5 py-1 rounded-full hover:text-black ">
