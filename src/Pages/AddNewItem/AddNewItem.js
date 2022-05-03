@@ -4,10 +4,10 @@ const AddNewItem = () => {
   return (
     <div className="relative ">
       <div className="bg-blend-darken">
-        <img className="h-screen w-screen" src="https://i.ibb.co/PzwFxdV/pexels-mike-120049.jpg" alt="" />
+        <img className=" w-screen" src="https://i.ibb.co/PzwFxdV/pexels-mike-120049.jpg" alt="" />
       </div>
 
-<div className="absolute w-screen  mt-24   bg-[rgba(0,0,0,.3)] h-screen top-0">
+<div className="absolute w-screen  mt-24   bg-[rgba(0,0,0,.1)] h-screen top-0">
     
 <div className="w-50 flex flex-col justify-center items-center">
     <h1 className="text-amber-600 text-xl font-bold mb-5 font-serif md:text-4xl">ADD NEW ITEM HERE</h1>
