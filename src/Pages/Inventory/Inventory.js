@@ -4,9 +4,10 @@ import { FaRegTimesCircle } from "react-icons/fa";
 const Inventory = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [userValue,setUserValue] = useState(0)
   const [updateQuantity, setUpdateQuantity] = useState(false);
-  const [getQuantity, setGetQuantity] = useState(product.quantity);
-  console.log(updateQuantity);
+  // const [getDeliveredQuantity, setDeliveredQuantity] = useState(0);
+  // console.log(updateQuantity);
 
   useEffect(() => {
     const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
@@ -15,11 +16,41 @@ const Inventory = () => {
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id]);
-  const handleQuantity = () => {
+
+  // const getValueFromUser=(value) =>{
+console.log(userValue);
+  // }
+const handleUpdateQuantity=() => {
+  const updateQuantity2 = parseInt(product.quantity) +parseInt(userValue)
+  const updateQuantity3 = {updateQuantity2}
+  // const uri = `http://localhost:5000/products/${id}`
+  const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+  console.log(updateQuantity3)
+
+fetch(uri, {
+  method: 'PUT', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(updateQuantity3),
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+  alert('Success')
+})
+// console.log(updateQuantity2);
+}
+  const handleDeliveredQuantity = () => {
     // setGetQuantity(getQuantity - 1)
-    const proQuantity = parseInt(product.quantity);
-    setGetQuantity(proQuantity + 2);
-    console.log(getQuantity, product.quantity);
+// if(getDeliveredQuantity){
+  // const proQuantity = parseInt(getDeliveredQuantity);
+//   const proQuantity2 = product.quantity - 1;
+  
+//   setDeliveredQuantity(proQuantity2);
+// // }
+    
+//     console.log(getDeliveredQuantity, product.quantity);
   };
   return (
     <div className="relative ">
@@ -42,9 +73,11 @@ const Inventory = () => {
               <span>Supplier : </span>{" "}
               <span className="text-zinc-100 ">{product?.supplierName}</span>
             </p>
+
             <p className="text-2xl text-amber-500 ">
             Quantity : <span className="text-zinc-100">{product?.quantity}</span>
           </p>
+
             <div></div>
           </div>
         </div>
@@ -53,7 +86,7 @@ const Inventory = () => {
         
           <div className="flex md:flex-col flex-wrap items-center justify-center">
             <button
-              onClick={handleQuantity}
+              onClick={() =>handleDeliveredQuantity(product.quantity)}
               className="bg-amber-500 px-5 md:w-1/2 w-[40%] md:ml-0 ml-3 md:mt-8 py-2 text-white rounded-sm"
             >
               Delivered
@@ -71,12 +104,13 @@ const Inventory = () => {
             {updateQuantity ? (
               <div className="md:w-[70%] w-[85%]  flex bg-[rgba(0,0,0,.5)]  px-8 md:py-4  rounded-lg relative">
                 <input
+                onBlur={e=>setUserValue(e.target.value)}
                   className=" md:px-5 px-3  shadow-xl  py-2"
                   type="number"
                   name=""
                   id=""
                 ></input>
-                <button className="bg-amber-700 md:px-5 px-2  py-2 border-0 text-white ">
+                <button onClick={handleUpdateQuantity} className="bg-amber-700 md:px-5 px-2  py-2 border-0 text-white ">
                   Add
                 </button>
                 <span
