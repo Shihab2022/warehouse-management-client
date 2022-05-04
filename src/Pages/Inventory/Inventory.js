@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaRegTimesCircle } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Inventory = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [userValue,setUserValue] = useState(0)
+  const [userValue, setUserValue] = useState(0);
   const [updateQuantity, setUpdateQuantity] = useState(false);
-  // const [getDeliveredQuantity, setDeliveredQuantity] = useState(0);
-  // console.log(updateQuantity);
+  const [update, setUpdate] = useState(true);
+
 
   useEffect(() => {
     const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
@@ -15,42 +17,32 @@ const Inventory = () => {
     fetch(uri)
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, [id]);
+  }, [id, update]);
 
-  // const getValueFromUser=(value) =>{
-console.log(userValue);
-  // }
-const handleUpdateQuantity=() => {
-  const updateQuantity2 = parseInt(product.quantity) +parseInt(userValue)
-  const updateQuantity3 = {updateQuantity2}
-  // const uri = `http://localhost:5000/products/${id}`
-  const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
-  console.log(updateQuantity3)
 
-fetch(uri, {
-  method: 'PUT', // or 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(updateQuantity3),
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-  alert('Success')
-})
-// console.log(updateQuantity2);
-}
-  const handleDeliveredQuantity = () => {
-    // setGetQuantity(getQuantity - 1)
-// if(getDeliveredQuantity){
-  // const proQuantity = parseInt(getDeliveredQuantity);
-//   const proQuantity2 = product.quantity - 1;
+
+  // update Quantity section 
   
-//   setDeliveredQuantity(proQuantity2);
-// // }
-    
-//     console.log(getDeliveredQuantity, product.quantity);
+  const handleUpdateQuantity = () => {
+    const updateQuantity2 = parseInt(product.quantity) + parseInt(userValue);
+    const updateQuantity3 = { updateQuantity2 };
+    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    fetch(uri, {
+      method: "PUT", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updateQuantity3),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        toast("New Quantity added successfully !")
+        setUpdate(!update)
+      });
+  };
+  const handleDeliveredQuantity = () => {
+
   };
   return (
     <div className="relative ">
@@ -75,23 +67,24 @@ fetch(uri, {
             </p>
 
             <p className="text-2xl text-amber-500 ">
-            Quantity : <span className="text-zinc-100">{product?.quantity}</span>
-          </p>
+              Quantity :{" "}
+              <span className="text-zinc-100">{product?.quantity}</span>
+            </p>
 
             <div></div>
           </div>
         </div>
 
         <div className="md:ml-10 ">
-        
           <div className="flex md:flex-col flex-wrap items-center justify-center">
             <button
-              onClick={() =>handleDeliveredQuantity(product.quantity)}
+              onClick={() => handleDeliveredQuantity(product.quantity)}
               className="bg-amber-500 px-5 md:w-1/2 w-[40%] md:ml-0 ml-3 md:mt-8 py-2 text-white rounded-sm"
             >
               Delivered
             </button>
-            <Link to='/addNewItem'
+            <Link
+              to="/addNewItem"
               className="bg-amber-700 px-5 text-center md:w-1/2 w-[40%] md:ml-0 ml-3  md:mt-5 py-2 text-white rounded-sm"
             >
               Add New Item
@@ -104,13 +97,16 @@ fetch(uri, {
             {updateQuantity ? (
               <div className="md:w-[70%] w-[85%]  flex bg-[rgba(0,0,0,.5)]  px-8 md:py-4  rounded-lg relative">
                 <input
-                onBlur={e=>setUserValue(e.target.value)}
+                  onBlur={(e) => setUserValue(e.target.value)}
                   className=" md:px-5 px-3  shadow-xl  py-2"
                   type="number"
                   name=""
                   id=""
                 ></input>
-                <button onClick={handleUpdateQuantity} className="bg-amber-700 md:px-5 px-2  py-2 border-0 text-white ">
+                <button
+                  onClick={handleUpdateQuantity}
+                  className="bg-amber-700 md:px-5 px-2  py-2 border-0 text-white "
+                >
                   Add
                 </button>
                 <span
@@ -128,9 +124,8 @@ fetch(uri, {
                 Update Quantity
               </button>
             )}
-
-           
           </div>
+          <ToastContainer />
         </div>
       </div>
     </div>
