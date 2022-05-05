@@ -12,7 +12,8 @@ const Inventory = () => {
 
 
   useEffect(() => {
-    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    const uri = `http://localhost:5000/products/${id}`;
+    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
 
     fetch(uri)
       .then((res) => res.json())
@@ -22,17 +23,18 @@ const Inventory = () => {
 
 
   // update Quantity section 
-  
+
   const handleUpdateQuantity = () => {
     const updateQuantity2 = parseInt(product.quantity) + parseInt(userValue);
-    const updateQuantity3 = { updateQuantity2 };
-    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    const upQuantObject = { updateQuantity2 };
+    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    const uri = `http://localhost:5000/products/${id}`;
     fetch(uri, {
       method: "PUT", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updateQuantity3),
+      body: JSON.stringify(upQuantObject),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -41,8 +43,30 @@ const Inventory = () => {
         setUpdate(!update)
       });
   };
-  const handleDeliveredQuantity = () => {
 
+  // deliverad quantity
+
+  const handleDeliveredQuantity = () => {
+    const deliveredQuantity = parseInt(product.quantity) -1
+    // const deliQuantObject = { deliveredQuantity};
+    console.log(typeof(product.quantity))
+    console.log(typeof(deliveredQuantity))
+
+    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    // const uri = `http://localhost:5000/products/${id}`;
+    // fetch(uri, {
+    //   method: "PUT", // or 'PUT'
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(deliQuantObject),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log("Success:", data);
+    //     toast("New Quantity added successfully !")
+    //     // setUpdate(!update)
+    //   });
   };
   return (
     <div className="relative ">
