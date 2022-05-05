@@ -13,8 +13,8 @@ const picture=e.target.imageUri.value
 const about=e.target.about.value
 const addProduct ={name1,name2,price,quantity,supplierName,picture,about}
 
-
-fetch('http://localhost:5000/products', {
+fetch('https://guarded-cliffs-41354.herokuapp.com/products',{
+// fetch('http://localhost:5000/products', {
   method: 'POST', 
   headers: {
     'Content-Type': 'application/json',

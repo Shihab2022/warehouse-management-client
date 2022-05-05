@@ -13,7 +13,8 @@ const [userError,setUserError]=useState('')
     user,
     loading,
     error,
-  ] = useCreateUserWithEmailAndPassword(auth);
+  ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  
   const [signInWithGoogle, googlUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 const submitFrom= e => {
   const email = e.target.email.value

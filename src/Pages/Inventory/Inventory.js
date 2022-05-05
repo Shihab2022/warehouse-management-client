@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 const Inventory = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -10,10 +12,10 @@ const Inventory = () => {
   const [updateQuantity, setUpdateQuantity] = useState(false);
   const [update, setUpdate] = useState(true);
 
-
+console.log(id)
   useEffect(() => {
-    const uri = `http://localhost:5000/products/${id}`;
-    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    // const uri = `http://localhost:5000/products/${id}`;
+    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
 
     fetch(uri)
       .then((res) => res.json())
@@ -27,8 +29,8 @@ const Inventory = () => {
   const handleUpdateQuantity = () => {
     const updateQuantity2 = parseInt(product.quantity) + parseInt(userValue);
     const upQuantObject = { updateQuantity2 };
-    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
-    const uri = `http://localhost:5000/products/${id}`;
+    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    // const uri = `http://localhost:5000/products/${id}`;
     fetch(uri, {
       method: "PUT", // or 'PUT'
       headers: {
