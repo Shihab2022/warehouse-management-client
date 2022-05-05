@@ -13,7 +13,7 @@ const Product = () => {
 </div>
          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
             {
-                homeData.map(data=><ProductDetails data={data} key={data._id}></ProductDetails>)
+                homeData.slice(0,6).map(data=><ProductDetails data={data} key={data._id}></ProductDetails>)
             }
       
         </div>

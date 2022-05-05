@@ -29,7 +29,7 @@ fetch('http://localhost:5000/products', {
 
 
 
-// e.target.reset()
+e.target.reset()
 e.preventDefault();
   }
   return (

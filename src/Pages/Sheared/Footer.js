@@ -5,7 +5,7 @@ import { FaFacebook ,FaTwitter ,FaLinkedin ,FaGithub,FaPaypal} from "react-icons
 const Footer = () => {
     return (
       <>
-      <footer className="text-white body-font md:px-24 px-5 bg-black">
+      <footer className="text-white body-font md:px-24 px-5 w-screen bg-black">
   <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <Link to='/' className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
      <img src={logo2} alt="" />
