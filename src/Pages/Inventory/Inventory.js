@@ -14,8 +14,8 @@ const Inventory = () => {
 
 console.log(id)
   useEffect(() => {
-    // const uri = `http://localhost:5000/products/${id}`;
-    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    const uri = `http://localhost:5000/products/${id}`;
+    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
 
     fetch(uri)
       .then((res) => res.json())
@@ -29,8 +29,8 @@ console.log(id)
   const handleUpdateQuantity = () => {
     const updateQuantity2 = parseInt(product.quantity) + parseInt(userValue);
     const upQuantObject = { updateQuantity2 };
-    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
-    // const uri = `http://localhost:5000/products/${id}`;
+    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    const uri = `http://localhost:5000/products/${id}`;
     fetch(uri, {
       method: "PUT", // or 'PUT'
       headers: {

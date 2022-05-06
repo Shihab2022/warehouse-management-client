@@ -1,8 +1,10 @@
 import React from "react";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import auth from "../../firebase.init";
 const AddNewItem = () => {
-
+  const [user] = useAuthState(auth);
   const handleAddNewItem=(e)=> {
 const name1=e.target.firstName.value
 const name2=e.target.lastName.value
@@ -13,8 +15,8 @@ const picture=e.target.imageUri.value
 const about=e.target.about.value
 const addProduct ={name1,name2,price,quantity,supplierName,picture,about}
 
-fetch('https://guarded-cliffs-41354.herokuapp.com/products',{
-// fetch('http://localhost:5000/products', {
+// fetch('https://guarded-cliffs-41354.herokuapp.com/products',{
+fetch('http://localhost:5000/products', {
   method: 'POST', 
   headers: {
     'Content-Type': 'application/json',
@@ -88,6 +90,14 @@ e.preventDefault();
               id=""
             />
             <input
+              className="bg-stone-700 w-full  py-3 px-10 text-stone-100 rounded-sm mt-5"
+              type="email"
+              name="email"
+              value={user?.email}
+              id=""
+              disabled
+            />
+            <input
               className="bg-stone-700 w-full my-5  py-3 px-10 text-stone-100 rounded-sm"
               type="text"
               name="imageUri"
@@ -99,7 +109,7 @@ e.preventDefault();
               placeholder="Please tell something for your product"
               id=""
               cols="30"
-              rows="7"
+              rows="4"
             ></textarea>
             <div className="flex  my-2 justify-center">
               <input

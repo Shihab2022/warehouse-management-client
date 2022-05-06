@@ -6,7 +6,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import auth from '../../firebase.init';
 import Loading from '../Sheared/Loading';
 import { toast } from 'react-toastify';
-const Login = () => {
+const LoginUser = () => {
   const [getEmil,setGetEmail]=useState('')
 const navigate =useNavigate()
 let location = useLocation();
@@ -131,4 +131,4 @@ if(loading || googleLoading || sending){
     );
 };
 
-export default Login;
+export default LoginUser;

@@ -5,7 +5,7 @@ import AddNewItem from './Pages/AddNewItem/AddNewItem';
 import Blog from './Pages/Blog/Blog';
 import Home from './Pages/Home/Home';
 import Inventory from './Pages/Inventory/Inventory';
-import Login from './Pages/Login/Login';
+import LoginUser from './Pages/Login/LoginUser';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
 import ManageItems from './Pages/ManageItems/ManageItems';
@@ -21,7 +21,7 @@ function App() {
       <Routes>
 <Route path='/' element={<Home></Home>}></Route>
 <Route path='/home' element={<Home></Home>}></Route>
-<Route path='/login' element={<Login></Login>}></Route>
+<Route path='/login' element={<LoginUser></LoginUser>}></Route>
 <Route path='/register' element={<Register></Register>}></Route>
 <Route path='/blog' element={<Blog></Blog>}></Route>
 <Route path='/inventory' element={<RequireAuth>  <Inventory></Inventory></RequireAuth>}></Route>
