@@ -19,7 +19,7 @@ const ManageItems = () => {
         .then((response) => response.json())
         .then((result) => {
           if (result.deletedCount > 0) {
-            console.log("Success:", result);
+            // console.log("Success:", result);
             toast("This item  deleted successfully !");
             const remaining = homeData.filter((data) => data._id !== id);
             setHomeData(remaining);

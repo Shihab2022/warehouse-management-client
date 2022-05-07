@@ -17,21 +17,19 @@ const Inventory = () => {
   useEffect(() => {
     // const uri = `http://localhost:5000/products/${id}`;
     const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
-
     fetch(uri)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id, update]);
-
-
 
   // update Quantity section 
 
   const handleUpdateQuantity = () => {
     const updateQuantity2 = parseInt(product.quantity) + parseInt(userValue);
     const upQuantObject = { updateQuantity2 };
-    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
-    // const uri = `http://localhost:5000/products/${id}`;
+    // console.log(upQuantObject);
+    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    const uri = `http://localhost:5000/products/${id}`;
     fetch(uri, {
       method: "PUT", // or 'PUT'
       headers: {
@@ -41,7 +39,7 @@ const Inventory = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
+        // console.log("Success:", data);
         toast("New Quantity added successfully !")
         setUpdate(!update)
       });
@@ -49,27 +47,29 @@ const Inventory = () => {
 
   // deliverad quantity
 
+ 
   const handleDeliveredQuantity = () => {
-    const deliveredQuantity = parseInt(product.quantity) -1
-    // const deliQuantObject = { deliveredQuantity};
-    console.log(typeof(product.quantity))
-    console.log(typeof(deliveredQuantity))
-
-    // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+    product.quantity = parseInt(product.quantity) -1
+ 
+    const new_quantity= product.quantity
+    const go={new_quantity}
+  
+  
+    const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
     // const uri = `http://localhost:5000/products/${id}`;
-    // fetch(uri, {
-    //   method: "PUT", // or 'PUT'
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(deliQuantObject),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Success:", data);
-    //     toast("New Quantity added successfully !")
-    //     // setUpdate(!update)
-    //   });
+    fetch(uri, {
+      method: "PUT", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(go),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log("Success:", data);
+        toast("Delivered successfully !")
+        setUpdate(!update)
+      });
   };
   return (
     <div className="relative ">
@@ -116,10 +116,10 @@ const Inventory = () => {
             >
               Add New Item
             </Link>
-            <button className="bg-amber-500 px-5 my-5 md:w-1/2 w-[40%] md:ml-0 ml-3 py-2 text-white rounded-sm">
+            <Link to='/manageItems' className="bg-amber-500 px-5 text-center md:w-1/2 w-[40%] md:ml-0 ml-3  md:mt-5 py-2 text-white rounded-sm mb-4">
               {" "}
               All Inventory
-            </button>
+            </Link>
 
             {updateQuantity ? (
               <div className="md:w-[70%] w-[85%]  flex bg-[rgba(0,0,0,.5)]  px-8 md:py-4  rounded-lg relative">

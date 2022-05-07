@@ -27,7 +27,7 @@ fetch('https://guarded-cliffs-41354.herokuapp.com/products',{
 })
 .then(response => response.json())
 .then(data => {
-  console.log('Success:', data);
+  // console.log('Success:', data);
   toast("New Item added successfully !")
 })
 e.target.reset()
@@ -37,7 +37,7 @@ e.preventDefault();
     <div className="relative  ">
       <div className="bg-blend-darken">
         <img
-          className=" md:w-screen h-screen md:pb-0  mb-56"
+          className=" md:w-screen h-screen md:pb-0  md:mb-0 mb-56"
           src="https://i.ibb.co/PzwFxdV/pexels-mike-120049.jpg"
           alt=""
         />
