@@ -60,14 +60,14 @@ const Header = () => {
             {user ? (
               <button
                 onClick={logOutUser}
-                className="mr-5 bg-rose-800 px-5 py-1 rounded-full hover:text-black "
+                className="mr-5 bg-rose-800 px-5 py-2 rounded-full hover:text-black "
               >
                 Log out
               </button>
             ) : (
               <Link
                 to="/login"
-                className="mr-5 bg-amber-500 px-5 py-1 rounded-full hover:text-black "
+                className="mr-5 bg-amber-500 px-5 py-2 rounded-full hover:text-black "
               >
                 Login
               </Link>

@@ -11,8 +11,8 @@ const ManageItems = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete ? ");
     if (proceed) {
-      // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
-      const uri = `http://localhost:5000/products/${id}`;
+      const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
+      // const uri = `http://localhost:5000/products/${id}`;
       fetch(uri, {
         method: "DELETE",
       })

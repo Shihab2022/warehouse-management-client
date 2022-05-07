@@ -13,10 +13,12 @@ const quantity= e.target.quantity.value
 const supplierName=e.target.supplierName.value
 const picture=e.target.imageUri.value
 const about=e.target.about.value
-const addProduct ={name1,name2,price,quantity,supplierName,picture,about}
+const email=e.target.email.value
 
-// fetch('https://guarded-cliffs-41354.herokuapp.com/products',{
-fetch('http://localhost:5000/products', {
+const addProduct ={name1,name2,price,email,quantity,supplierName,picture,about}
+
+fetch('https://guarded-cliffs-41354.herokuapp.com/products',{
+// fetch('http://localhost:5000/products', {
   method: 'POST', 
   headers: {
     'Content-Type': 'application/json',
@@ -28,58 +30,59 @@ fetch('http://localhost:5000/products', {
   console.log('Success:', data);
   toast("New Item added successfully !")
 })
-
-
-
 e.target.reset()
 e.preventDefault();
   }
   return (
-    <div className="relative ">
+    <div className="relative  ">
       <div className="bg-blend-darken">
         <img
-          className=" md:w-screen h-full"
+          className=" md:w-screen h-screen md:pb-0  mb-56"
           src="https://i.ibb.co/PzwFxdV/pexels-mike-120049.jpg"
           alt=""
         />
       </div>
 
       <div className="absolute w-screen    bg-[rgba(0,0,0,.1)]  top-0">
-        <div className="w-50 flex flex-col md:mt-24 mt-64  justify-center items-center">
+        <div className="w-50 flex flex-col md:mt-24 mt-40  justify-center items-center">
           <h1 className="text-amber-600 text-xl font-bold mb-5 font-serif md:text-4xl">
             ADD NEW ITEM HERE
           </h1>
           <form onSubmit={handleAddNewItem}>
             <div className="flex justify-center md:justify-between flex-wrap">
               <input
-                className="bg-stone-700 md:w-1/2 py-3 px-10 text-stone-100 rounded-sm"
+                className="bg-stone-700 md:w-1/2 w-full py-3 px-10 text-stone-100 rounded-sm"
                 type="text"
                 name="firstName"
                 placeholder="First Name"
                 id=""
+                required
               />
               <input
-                className="bg-stone-700 md:w-[45%] md:mt-0 mt-3  py-3 px-10 text-stone-100 rounded-sm"
+                className="bg-stone-700 md:w-[45%] w-full md:mt-0 mt-3  py-3 px-10 text-stone-100 rounded-sm"
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
                 id=""
+                
               />
             </div>
             <div className="flex justify-center mt-4 md:justify-between flex-wrap">
               <input
-                className="bg-stone-700 md:w-1/2 py-3 px-10 text-stone-100 rounded-sm"
+                className="bg-stone-700 md:w-1/2 w-full py-3 px-10 text-stone-100 rounded-sm"
                 type="number"
                 name="price"
                 placeholder="Enter Price"
                 id=""
+                required
               />
               <input
-                className="bg-stone-700 md:w-[45%] md:mt-0 mt-3  py-3 px-10 text-stone-100 rounded-sm"
+                className="bg-stone-700 md:w-[45%] w-full md:mt-0 mt-3  py-3 px-10 text-stone-100 rounded-sm"
                 type="number"
                 name="quantity"
                 placeholder="Product Quantity"
                 id=""
+                required
               />
             </div>
             <input
@@ -88,6 +91,7 @@ e.preventDefault();
               name="supplierName"
               placeholder="Supplier Name"
               id=""
+              required
             />
             <input
               className="bg-stone-700 w-full  py-3 px-10 text-stone-100 rounded-sm mt-5"
@@ -102,6 +106,7 @@ e.preventDefault();
               type="text"
               name="imageUri"
               placeholder="Image Url"
+              required
             />
             <textarea
               className="bg-stone-700 w-full py-5 text-stone-100 rounded-sm px-10 mt-2"
@@ -109,6 +114,7 @@ e.preventDefault();
               placeholder="Please tell something for your product"
               id=""
               cols="30"
+              required
               rows="4"
             ></textarea>
             <div className="flex  my-2 justify-center">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo2 from "../img/logo2.png";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init";
@@ -7,7 +7,10 @@ import Loading from "../Sheared/Loading";
 
 const Register = () => {
 const navigate=useNavigate()
+let location = useLocation();
+let from = location.state?.from?.pathname || "/";
 const [userError,setUserError]=useState('')
+
   const [
     createUserWithEmailAndPassword,
     user,
@@ -36,7 +39,7 @@ if(loading || googleLoading){
   return <Loading></Loading>
 }
 if(user || googlUser){
-  return navigate('/')
+  navigate(from, { replace: true });
 }
 
 
