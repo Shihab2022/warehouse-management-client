@@ -4,23 +4,23 @@ import auth from "../../firebase.init";
 import { useNavigate } from "react-router-dom";
 import MyItemsDetails from "./MyItemsDetails";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Loading from "../Sheared/Loading";
+import "react-toastify/dist/ReactToastify.css"; 
 
 const MyItems = () => {
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
-  const [user,loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
  
 
 
   useEffect(() => {
     const email = user?.email;
+    
     const url = `http://guarded-cliffs-41354.herokuapp.com/userAddCollection?email=${email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setUserData(data));
-  }, [user]);
+  }, [user?.email,userData]);
 
   // delete product
 
@@ -43,13 +43,13 @@ const MyItems = () => {
         });
     }
   };
-  if(loading){
-    return <Loading></Loading>
-}
+//   if(loading){
+//     return <Loading></Loading>
+// }
   if (!user) {
     navigate("/");
   }
-
+// console.log(user?.email)
   return (
     <>
       <section className="pt-20 md:px-28 lg:pt-[120px] pb-10 lg:pb-20 bg-[#F3F4F6]">
