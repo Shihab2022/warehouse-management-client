@@ -3,10 +3,18 @@ import useHomePageData from "../../Hooks/HomePageData";
 import ManageItemsDetails from "./ManageItemsDetails";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const ManageItems = () => {
   const [homeData, setHomeData] = useHomePageData();
+  const navigate =useNavigate()
+  const [user]= useAuthState(auth);
+
+if(!user){
+  navigate('/')
+}
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure you want to delete ? ");

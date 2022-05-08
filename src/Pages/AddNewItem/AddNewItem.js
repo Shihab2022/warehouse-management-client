@@ -1,10 +1,17 @@
 import React from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from "../../firebase.init";
 const AddNewItem = () => {
   const [user] = useAuthState(auth);
+  const navigate =useNavigate()
+
+if(!user){
+  navigate('/')
+}
+
   const handleAddNewItem=(e)=> {
 const name1=e.target.firstName.value
 const name2=e.target.lastName.value

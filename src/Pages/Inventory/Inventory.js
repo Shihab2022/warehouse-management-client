@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 
 const Inventory = () => {
@@ -11,9 +13,12 @@ const Inventory = () => {
   const [userValue, setUserValue] = useState(0);
   const [updateQuantity, setUpdateQuantity] = useState(false);
   const [update, setUpdate] = useState(true);
+const  navigate =useNavigate()
+const [user]= useAuthState(auth);
 
-// console.log(id)
-
+if(!user){
+  navigate('/')
+}
   useEffect(() => {
     // const uri = `http://localhost:5000/products/${id}`;
     const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
@@ -22,12 +27,13 @@ const Inventory = () => {
       .then((data) => setProduct(data));
   }, [id, update]);
 
+
+ 
   // update Quantity section 
 
   const handleUpdateQuantity = () => {
     const updateQuantity2 = parseInt(product.quantity) + parseInt(userValue);
     const upQuantObject = { updateQuantity2 };
-    // console.log(upQuantObject);
     // const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
     const uri = `http://localhost:5000/products/${id}`;
     fetch(uri, {
@@ -50,11 +56,8 @@ const Inventory = () => {
  
   const handleDeliveredQuantity = () => {
     product.quantity = parseInt(product.quantity) -1
- 
     const new_quantity= product.quantity
     const go={new_quantity}
-  
-  
     const uri = `https://guarded-cliffs-41354.herokuapp.com/products/${id}`;
     // const uri = `http://localhost:5000/products/${id}`;
     fetch(uri, {

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
 import logo2 from '../img/logo2.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Sheared/Loading';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const LoginUser = () => {
   const [getEmil,setGetEmail]=useState('')
 const navigate =useNavigate()

@@ -4,6 +4,8 @@ import logo2 from "../img/logo2.png";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init";
 import Loading from "../Sheared/Loading";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 const navigate=useNavigate()
@@ -17,7 +19,8 @@ const [userError,setUserError]=useState('')
     loading,
     error,
   ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  
+  console.log(user?.user?.emailVerified)
+  console.log(user)
   const [signInWithGoogle, googlUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 const submitFrom= e => {
   const email = e.target.email.value
@@ -38,8 +41,15 @@ const handleSignInWithGoogle=()=> {
 if(loading || googleLoading){
   return <Loading></Loading>
 }
+
+// if(!user?.user?.emailVerified){
+//   toast('Please Verified Your Email !!')
+//  }
+ 
 if(user || googlUser){
-  navigate(from, { replace: true });
+  toast('Welcome Our Royal Cars Shops !!')
+    navigate(from, { replace: true });
+   
 }
 
 
@@ -128,6 +138,7 @@ if(user || googlUser){
             </button>
           </div>
         </div>
+        <ToastContainer/>
       </div>
      
     </>
