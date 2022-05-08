@@ -7,9 +7,9 @@ const MyItemsDetails = ({ data,handleDelete}) => {
     
             
           <div className="w-full md:w-1/2 pb-5  xl:w-1/3 px-4">
-            <div className="bg-amber-100 h-[600px] shadow-xl shadow-orange-300 rounded-lg overflow-hidden mb-10">
+            <div className="bg-amber-100 h-[600px] shadow-xl hover:shadow-orange-800 shadow-orange-300 rounded-lg overflow-hidden mb-10">
               <img
-                className="w-full"
+                className="w-full h-[260px]"
                 src={picture}
                 alt=""
               />

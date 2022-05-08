@@ -10,7 +10,7 @@ const ProductDetails = ({data}) => {
     return (
         <>
 
-         <div className="bg-white w-[90%] grid grid-cols-1 rounded-md md:ml-0 ml-5 shadow-2xl md:grid-cols-2  justify-evenly px-5 items-center py-8">
+         <div className="bg-white w-[90%] grid grid-cols-1 rounded-md md:ml-0 ml-5 shadow-2xl shadow-orange-300 hover:shadow-orange-600 md:grid-cols-2  justify-evenly px-5 items-center py-8">
         <div className="w-full">
         <img className='h-[220px] md:w-[200px] rounded-sm' src={picture} alt="" /> 
         </div>

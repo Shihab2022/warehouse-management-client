@@ -37,6 +37,23 @@ fetch('https://guarded-cliffs-41354.herokuapp.com/products',{
   // console.log('Success:', data);
   toast("New Item added successfully !")
 })
+
+
+
+fetch('http://guarded-cliffs-41354.herokuapp.com/userAddCollection', {
+  method: 'POST', 
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(addProduct),
+})
+.then(response => response.json())
+.then(data => {
+  // console.log('Success:', data);
+  // toast("New user  Item added successfully !")
+})
+
+
 e.target.reset()
 e.preventDefault();
   }
