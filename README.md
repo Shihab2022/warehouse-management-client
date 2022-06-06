@@ -7,13 +7,13 @@
 
 ### Client Side Code :
 
-[Client Side : ](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-Shihab2022).
-[https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-Shihab2022]
+[Client Side : ](https://github.com/Shihab2022/warehouse-management-client).
+[https://github.com/Shihab2022/warehouse-management-client]
 
 ### Server Side Code :
 
-[Server Side : ](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-Shihab2022).
-[https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-Shihab2022]
+[Server Side : ](https://github.com/Shihab2022/warehouse-management-server).
+[https://github.com/Shihab2022/warehouse-management-server]
 
 ### Stackoverflow 
 
